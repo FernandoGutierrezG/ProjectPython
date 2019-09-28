@@ -2,8 +2,9 @@
 
 print "Hello World"
 print "Modificacion 1 del script"
-for x in range(10):
+for x in range(3):
   print("GitHub")
 
-
+x=3+2
+print ("3 + 2 = " + str(x)) 
 
