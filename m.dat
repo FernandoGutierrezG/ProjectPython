@@ -6,3 +6,134 @@
 # cap 2
 Introduccion a los motores
 
+
+
+
+Capítulo 2. Preliminares 2.1 Sensores Inerciales
+2.1.1. Giroscopios
+2.1.2. Acelerómetros
+2.1.3. MEMS
+2.2. Motores Eléctricos
+2.2.1. Motores eléctricos DC
+2.2.2. Motores tipo Brushless
+2.3. Medición e instrumentación
+2.3.1. Conceptos de medición
+2.3.2. Conceptos de instrumentación
+2.3.3. Medición e instrumentación
+2.3.4. Calibración 
+ 
+ 
+Capítulo 3. Requerimientos de diseño de la tarjeta de medición
+3.1. Baterías 
+Las baterías son dispositivos que almacenan energía en celdas electroquímicas y convierten esa energía química en energía eléctrica, estas son una pieza clave en el desarrollo de proyectos eléctricos/electrónicos, ya que son las que proporcionan la energía para todo el sistema. Desde sistemas tan ordinarios como las baterías de los automóviles que dan la energía para accionar el arrancador y estar siendo cargada por el alternador cuando el automóvil esta encendido, hasta sistemas más remotos y difíciles de ser reemplazados como las baterías de los satélites que toman la energía de los paneles solares y almacenan la carga para el funcionamiento de todo el satélite.
+Las baterías se clasifican o se dividen en 2 clases en función a la posibilidad de ser recargadas una vez que han pedido su carga eléctrica:
+Baterías primarias: No se pueden recargar. Esto es una vez que ha cedido toda su energía al circuito electrónico a alimentar la batería queda descargada y es inútil por lo tanto es necesario reemplazarla para que el circuito funcione. Un ejemplo de este tipo de baterías son las del control remoto de la televisión, funcionan durante un tiempo, pero una vez que se han descargado es necesario cambiarlas por unas nuevas para que el control remoto funcione.
+Baterías secundarias: Si se pueden recargar. Este tipo de baterías entregan energía de la que han adquirido. Ósea que para que puedan suministrar energía a un circuito eléctrico primero es necesario cargar la batería. Y si esta batería se descarga, es posible volver a cargarla, también es posible cargar la batería, aunque no esté totalmente descargada. Un ejemplo de este tipo de baterías son las baterías de los celulares que para que funcione tenemos que conectar el celular al cargador.
+Para este trabajo de tesis se eligió una batería secundaria, ya que es un sistema que va a estar operando por horas, y por varios meses, así que no es costeable estar comprando baterías cada semana, porque el gasto del proyecto aumentaría demasiado.
+El siguiente paso es elegir el nivel de voltaje de batería, para esto es importante considerar los siguientes puntos:
+•	Voltaje de alimentación de los componentes que alimentara la batería.
+•	Tamaño
+•	Peso
+•	Potencia máxima que puede entregar.
+•	Carga máxima que puede adquirir la batería.
+•	Tiempo estimado de uso.
+•	Precio
+Voltaje de componentes que alimentará: Nuestro sistema estará compuesto por la batería, sensores inerciales, microcontrolador, módulo de transmisión inalámbrica. Así que nuestra batería tiene que ser elegida para alimentar a todos estos dispositivos. El primer filtro es el microcontrolador, el cual funciona a voltajes pequeños típicamente 3.3V o 5V. Así mismo los sensores inerciales electrónicos funcionan en su mayoría con un voltaje de 3.3V, tomando en cuenta esto.
+Como la mayoría de los sensores funcionan con un voltaje de alimentación de 3.3V, la batería deberá tener un voltaje un poco mayor a 3.3V, para que pueda ser regulado a este valor.
+
+Tamaño: Se desea que el tamaño de la batería sea el más pequeño posible, ya que esta batería ira montada en una estructura donde también ira montada la tarjeta MMAVE y entre más grande sea la batería más difícil será sujetarla y más grande será la estructura. 
+
+Peso: Al igual que la cuestión del tamaño, es necesario que el peso sea el menor posible, la razón es porque se planea montar la tarjeta MMAVE y la batería a un motor eléctrico, y entre más pesada sea la batería más torque requerirá el motor para girar. Además, pensando en trabajos futuros, si se llega a montar nuestra tarjeta en un DRON para y la batería es muy pesada el dron se esforzará más por mantenerse en vuelo lo cual refleja mayor consumo de potencia.
+
+Potencia máxima que puede entregar: Para poder elegir una batería que nos sirva en un proyecto, es necesario hacer un análisis de consumo. En el cual se considera el consumo de cada módulo de nuestra tarjeta, y sumando el consumo máximo individual de cada módulo en la tarjeta podemos determinar el consumo máximo de la tarjeta. El cual se muestra en la siguiente tabla:
+
+El consumo máximo de la tarjeta MMAVE es de xxxx, así que es necesario elegir una batería que pueda suministrarnos una corriente mayor a la corriente requerida, de lo contario si se elige una batería que entrega una corriente menor a la requerida  al momento de que todos los componentes estén encendidos y se encuentren en su consumo máximo la demanda de corriente será mas de la que puede ceder la batería y al tratar de suplir esa demanda el voltaje nominal empezara a decrecer a tal punto que sea menor que el voltaje de alimentación de algunos o todos los componentes generando un reset general, ocasionando que el sistema no funcione adecuadamente.
+
+Tiempo estimado de uso: Una carcateristica importante de las bayterias además el voltaje y coriente que puden dar es la capacidad de energía (carga) que puede almacenar. Esto se mide en Wh o en C.
+Conociendo la capacidad de carga de la batería y el consumo de corriente del sistema podemos determinar cuanto tiempo estará fucncionando la batería en modo continuo. Por ejemplo: si la batería tiene una capacidad de 2Wh y el voltaje de la batería es de 5V 
+La batería puede suministrar Ah=Wh/V.   Ah=2/5. Ah=0.4Ah
+Y si el consumo del sistema es de 100mA 
+
+ “El número de Wh puede calcularse multiplicando el valor del voltaje nominal por el número de Ah.”
+
+
+El precio: De las características anteriores es importante saber que entre mas capacidad de carga, mas capacidad de entrega el costo de la batería será mayor, es decir entre mas capacidad o mejor sea la batería el costo subirá. Por tanto es necesario considerar donde se utilizara la batería y el presupuesto que se tiene. Porque no es conveniente tener una batería de alta calidad y costosa que puede darnos un Amper de corriente si nuestro mayor consumo serán 100 mA. 
+
+
+3.2. Convertidores de voltaje
+Es un componene electronico que a partir de un voltaje de entrada mantiene un voltaje de salida a un 
+valor deseado o cerca de ese valor.
+Existen diferentes tipos y modelos de reguladores de voltaje.
+Reguladores de voltaje en AC y en DC.
+DEntro de la seccion de reguladores de corriente continua tambien existen diferentes tipos que se basan
+en la forma en que regulan o mantienen su voltaje de salida lo mas cercano posible al valor deseado.
+
+Reguladores de voltaje de Tension lineal.
+Son los más sencillos de utilizar. Estan basados un un transistor de potencia que actua como una
+resistencia en serie entre la entrada y la carga que opera en su región lineal, asi 
+el transistor conduce constantemente. Y a la salida el voltaje es fijo (sin oscilaciones).
+(imagen de un regulador LDO)
+(imagne del circuito de una LDO)
+Estos reguladores son poco eficientes ya que el circuito tiende a calentarse mucho y esto provoca que 
+consuman mucha potencia. Se suelen utilizar disipadores de calor para evitar que el regulador llegue 
+a calentarse al punto en el que se queme, aunque aun asi se desperdicia energia en calor.
+La eficiencia de este tipo de reguladores es del 60%. Es decir de la potencia que reciben solo el
+60% de esa potencia entregan a la salida, el otro 40% se disipa en calor.
+
+Reguladores conmutados
+Son dispositivos donde un transistor esta conmutando en el modo de operacion, trabaja un tiempo
+en la region de corte y otro en la region de saturacion de forma periodica. Esto hace que el circuito
+genere pulsos de voltaje que al pasarlos por un capacitor se obtiene nivel de voltaje lineal con pequenas
+ondulaciones.
+La ventaja de estos refuladores es que al trabnjar ya sea al corte o a la saturación la potencia
+disipada por el mismo es muy poca
+En la region de corte: El voltaje entre el colector y emisor (VCE) es maximo pero la corriente ICE es 
+minima (idelamente 0 amperios). Asi que la ponetncia disipada sera P = VCE x IC = VCE x 0 = 0 watts
+En la region de saturacion: El
+Cuando el transistor está en saturación: La tensión entre el colector y el emisor (VCE) es mínima 
+(0 voltios) y la corriente IC es máxima, entonces: P = VCE x IC = 0 x IC = 0 watts
+Como los transistores no son dispositivos que conmutan en forma ideal, siempre hay una pérdida
+ de potencia, pero ésta es mucho menor a la pérdida de los reguladores tradicionales.
+
+
+3.3. Sensores inerciales 
+3.4. Protocolo de I2C 
+3.5. Tiempos de sensado 
+3.6. Unidad de proceso y control 
+3.7. Módulo de transmisión inalámbrica 
+3.8. Tamaño de la tarjeta  
+ 
+ 
+ 
+
+ Capítulo 4. Diseño de la tarjeta de para medir velocidad angular y aceleración.
+ 4.1. Microcontrolador
+ 4.2. Batería
+ 4.3. Reguladores de voltaje
+ Para elegir el regulador adecuado para este proyecto de tesis consideramos los siguientes puntos:
+Eficiencia: puesto que será un sistema remoto con una batería de voltaje, así que no se desea que se 
+desperdicie energía.
+Tamaño: Entre más grande sea la tarjeta electrónica mayor será el costo de fabricación.
+Para este sistema se decidió utilizar reguladores conmutados para tener una mayor eficiencia, 
+lo cual nos dara un mayor tiempo de operación del sistema, además de evitar que el sistema se caliente 
+por el uso de reguladores de tensión lineal y el no utilizar disipadores de calor nos reduce un poco 
+el espacio. 
+Para el diseño electrónico de estos reguladores consideramos lo siguiente:
+El uso de capacitores. Primeramente, los capacitores nos mantienen un voltaje de batería a la entrada 
+del regulador, así mismo mantener un voltaje de salida. Otra función de los capacitores es filtrar 
+el voltaje y evitar el rizado
+
+ 4.4. Sensores de medición inercial
+ 4.5. Modelo propuesto
+ 4.6. Diseño de esquemático
+ 4.7. Diseño de tarjeta de circuito impreso 
+ 
+ 
+Capítulo 5. Diseño de interfaz de usuario.
+5.1. Requerimientos
+5.2. Software utilizado
+5.3. Diagrama de flujo
+5.4. Protocolo de comunicación
+5.5. Configuración de la tarjeta de medición
+5.6. Configuración del motor utilizado
+
