@@ -9,7 +9,8 @@ Introduccion a los motores
 
 
 
-Capítulo 2. Preliminares 2.1 Sensores Inerciales
+Capítulo 2. Preliminares 
+2.1 Sensores Inerciales
 2.1.1. Giroscopios
 2.1.2. Acelerómetros
 2.1.3. MEMS
@@ -21,7 +22,37 @@ Capítulo 2. Preliminares 2.1 Sensores Inerciales
 2.3.2. Conceptos de instrumentación
 2.3.3. Medición e instrumentación
 2.3.4. Calibración 
+
+
+Capítulo 3. Requerimientos de diseño de la tarjeta de medición
+3.1. Baterías 
+3.2. Convertidores de voltaje
+3.4. Protocolo de I2C 
+3.5. Tiempos de sensado 
+3.6. Unidad de proceso y control 
+3.7. Módulo de transmisión inalámbrica 
+3.8. Tamaño de la tarjeta  
  
+Capítulo 4. Diseño de la tarjeta de para medir velocidad angular y aceleración.
+4.1. Microcontrolador
+4.2. Batería
+4.3. Reguladores de voltaje
+4.4. Sensores de medición inercial
+4.5. Modelo propuesto
+4.6. Diseño de esquemático
+4.7. Diseño de tarjeta de circuito impreso 
+ 
+Capítulo 5. Diseño de interfaz de usuario.
+5.1. Requerimientos
+5.2. Software utilizado
+5.3. Diagrama de flujo
+5.4. Protocolo de comunicación
+5.5. Configuración de la tarjeta de medición
+5.6. Configuración del motor utilizado
+
+
+
+
  
 Capítulo 3. Requerimientos de diseño de la tarjeta de medición
 3.1. Baterías 
@@ -87,18 +118,61 @@ genere pulsos de voltaje que al pasarlos por un capacitor se obtiene nivel de vo
 ondulaciones.
 La ventaja de estos refuladores es que al trabnjar ya sea al corte o a la saturación la potencia
 disipada por el mismo es muy poca
-En la region de corte: El voltaje entre el colector y emisor (VCE) es maximo pero la corriente ICE es 
+En la region de corte (abierto): El voltaje entre el colector y emisor (VCE) es maximo pero la corriente ICE es 
 minima (idelamente 0 amperios). Asi que la ponetncia disipada sera P = VCE x IC = VCE x 0 = 0 watts
-En la region de saturacion: El
-Cuando el transistor está en saturación: La tensión entre el colector y el emisor (VCE) es mínima 
-(0 voltios) y la corriente IC es máxima, entonces: P = VCE x IC = 0 x IC = 0 watts
-Como los transistores no son dispositivos que conmutan en forma ideal, siempre hay una pérdida
- de potencia, pero ésta es mucho menor a la pérdida de los reguladores tradicionales.
-
+En la region de saturacion (cerrado): La corriente Ic es maxima pero el voltaje VCE es minimo (idelamente
+  0 Volts), entonces: P = VCE x IC = 0 x IC = 0 watts
+Aunque en la practica no ocurre eso, los transistores no conmutan de forma ideal,  siempre hay 
+una perdida de potencia. Aunque esta es minima en comparacion con con un regulador LDO.
+La eficiencia de un regulador conmutado es del 95%.
 
 3.3. Sensores inerciales 
+Definicion de sensores inerciales.
 3.4. Protocolo de I2C 
+I2C significa Circuito Interintegrado (Por sus siglas en Inglés Inter-Integrated Circuit)
+es un protocolo de comunicación serial desarrollado por Phillips Semiconductors allá por
+la década de los 80s. Básicamente se creó para poder comunicar varios chips al mismo tiempo
+dentro de los televisores.
+El protocolo I2C toma e integra lo mejor de los protocolos SPI y UART. Con el protocolo I2C
+podemos tener a varios maestros controlando uno o múltiples esclavos. Esto puede ser de gran
+ayuda cuando se van a utilizar varios microcontroladores para almacenar un registro de datos
+hacia una sola memoria o cuando se va a mostrar información en una sola pantalla.
+(imagen de una diagrama I2C)
+SDA – Serial Data. Es la vía de comunicación entre el maestro y el esclavo para enviarse información.
+SCL – Serial Clock. Es la vía por donde viaja la señal de reloj.
+I2C es un protocolo de comunicación serial.
+Como podemos observar, el protocolo I2C envía información a través de una sola vía de comunicación.
+La información es enviada bit por bit de forma coordinada.
+I2C es un protocolo síncrono.
+Al igual el protocolo SPI, el protocolo I2C trabaja de forma síncrona. Esto quiere decir que el
+envío de bits por la vía de comunicación SDA está sincronizado por una señal de reloj que comparten
+tanto el maestro como el esclavo a través de la vía SCL.
+Con el protocolo I2C la información viaja en mensajes. Los mensajes van divididos en tramas de datos.
+Cada mensaje lleva un trama con una dirección la cuál transporta la dirección binaria del esclavo al
+que va dirigido el mensaje, y una o más tramas que llevan la información del mensaje. También el
+mensaje contiene condiciones de inicio y paro, lectura y escritura de bits, y los bits ACK y NACK.
+Todo esto va entre cada sección de datos.
+(imagen del protocolo I2C)
+
 3.5. Tiempos de sensado 
+Los sensores hacen mediciones de variables fisicas para despues entregar al usuario la cantidad de 
+esa variable que se esta midiendo
+ operar esos valores obtenidos y obtener
+un valor que representa la cantidad de esa variable que se esta midiendo, y entregan ese valor de forma
+analogica o difital. 
+En el caso de que sea un sensor digital, las mediciones no son continuas en todo el tiempo, es decir las
+mediciones estan muestreadas, osea que hay una medicion cada cierto intervalo detiempo. A esto se le 
+conoce como tiempo de muestreo o peridod de muestreo, que sencillamente es el tiempo trasncurrido entre cada muestra obtenida.
+Es aqui en donde entra la capacidad de los sensores, hay sensores que tiene un periodo de muestro muy
+pequeno (en microsegundos) y otros con un periodo mayor de cuestion de segundos, incluso hay sensores donde
+el perido de muestreo puede ser determinado por el usuario.
+La elecion del sensor en base a su perido de muestro depende de la razon de cambio del proceso u objeto
+que se desea medir, ya que el peridod de muestreo simpre debe ser menor a la razon de cambio del proceso.
+Por ejemplo, si se desea medir un proceso que constantemente esta cambiando en cuestion de nanosegundos 
+no se debe utilizar un sensor que su perido de muestro minimo sea de milisegundos o segundos, ya que el 
+sensor no es capaz de detectar esos cambios que tuvo el proceso.
+(imagen de periodod de muestreo)
+
 3.6. Unidad de proceso y control 
 3.7. Módulo de transmisión inalámbrica 
 3.8. Tamaño de la tarjeta  
