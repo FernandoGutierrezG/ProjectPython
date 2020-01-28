@@ -227,10 +227,61 @@ el voltaje y evitar el rizado
  
 Capítulo 5. Diseño de interfaz de usuario.
 5.1. Requerimientos
+Se requiere que la interfaz de usuario sea en un ambiente grafico, amigable para el usuario. Que establezca
+una comunicacion estable con la tarjeta MMAVA. Tambien se requiere que proporcione las herraminetas
+como botones, listboxes para configurar el tiempo de muestreo de la tarjeta, asi como los bonotes de 
+inciar y parar lectura de sensores inerciales.
+Ademas se pretende que la interfaz pueda controlar un motor electrico para la realizacion de pruebas. En
+donde se configuren parametros como puerto de comunicacion, velocidad angular, sentido de giro, etc.
 
 5.2. Software utilizado
+Para el diseno de la interfaz se utilizo el entorno de desarrollo integrado (IDE, por sus siglas en inglés)
+de microsoft visual studio version 2017 en el sistema operativo windows.
+Para la interfaz gráfica de usuario, conocida también como GUI (del inglés graphical user interface) 
+se utilizo la plataforma Microsoft .NET Framework donde se creo un formulario principal que contiene
+las 2 secciones de visualizacion y control para el motor yla tarjeta MMAVA. 
+
+
+El lenguaje de programacion utilizado fue C# donde se declararon las variables de usuario, definiero
+Alli se desarrollo el codigo que sera ejecutado en cada evento hecho en la interfaz grafica
+
+La funcionalidad se desarrollo en el lenguaje de C# en una metodologia POO programacion orientada
+a objetos. Se crearon los eventos para los objetos graficos como botones y listboxes para correr 
+los metodos y funciones para establecer comunicacion con la tarjeta MMAVE y motor.
+
+Una funcionalidad importante que se desarrollo en la interfaz grafica es la graficacion de las
+variables inerciales en tiempo real, que tiene la opcion de configuracion de que variables se desean 
+graficar. Las varibales son aceleracion en los 3 ejes  y velocidad angular para los 3 ejes.
+Asi que es posible graficar desde solo una variable hasta las 6 .
+Con graficas independientes para acleracion y velocidad angular.
+
+Otra funcionabilidad es que la interfaz de usuarionpermite guardar sesiones para pruebas o lecturas
+especificas. 
+Guardar los valores de las mediciones de cualqueir variable en el equipo, asimismo el poder abrir 
+alguna sesion guardada. Asi si se desea hacer una prueba se puede guardar para despues analizar 
+y volver a graficar los datos, sin tener que volver a encender ni el motor ni la tarjeta MMAVA.
+
+
 5.3. Diagrama de flujo
+
 5.4. Protocolo de comunicación
+Para comunicarnos con nuestros dos sistemas (MMAVA y motor) se utilizo el puerto serie con el protocolo
+RS232.
+
+
+La interfaz de usuario busca automaticamente los puertos COM conectados al equipo.
+Y al hacer click en el listbox, se desplegan todos los puertos serie (COM) encontrados.
+Alli se tiene que seleccionar el puerto del dispositivo con el que se quiere establecer la comunicacion.
+Es importante alcarar que son 2 puertos los que se utilizaran 1 para el motor y el otro para la tarjeta
+MMAVE
+tabla con informacion de comunicacion.
+
+
+
 5.5. Configuración de la tarjeta de medición
+La tarheta MMAVe se configura de la siguiente manera:
+Primero el puerto
+DEspues el tiempo de muestreo
+DEspues iniciar la lectura
 5.6. Configuración del motor utilizado
 
