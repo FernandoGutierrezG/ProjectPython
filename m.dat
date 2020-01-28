@@ -174,7 +174,29 @@ sensor no es capaz de detectar esos cambios que tuvo el proceso.
 (imagen de periodod de muestreo)
 
 3.6. Unidad de proceso y control 
+Un microcontrolador (abreviado μC, UC o MCU) es un circuito integrado programable, capaz de 
+ejecutar las órdenes grabadas en su memoria. Está compuesto de varios bloques funcionales que 
+cumplen una tarea específica. Un microcontrolador incluye en su interior las tres principales 
+unidades funcionales de una computadora: unidad central de procesamiento, memoria y periféricos 
+de entrada/salida.
+Tipos de microcontroladores:
+
 3.7. Módulo de transmisión inalámbrica 
+La comunicación inalámbrica o sin cables es aquella en la que la comunicación (emisor/receptor) 
+no se encuentra unida por un medio de propagación físico, sino que se utiliza la modulación de 
+ondas electromagnéticas a través del espacio.1​ En este sentido, los dispositivos físicos sólo están 
+presentes en los emisores y receptores de la señal, entre los cuales encontramos: antenas, computadoras 
+portátiles, PDA, teléfonos móviles, etc
+Existen proyectos o procesos donde no es posible tener un cable entre la tarjeta de adquisiscion de
+datos o el modulo de lectura de sensores y la computadora donde se guardan y grafican los datos 
+medidos, ya sea por cuestiones de que el sistema que toma las mediciones se esta moviendo, o requiere
+alejarse de el punto de alamcenamiento. En estos casos se requiere de trnasmitir las lecturas de los
+sensores u otra informacion por transmiscion inalambrica.
+Existen diferentes tipos de tecnologias de transmision inalambrica:
+Bluetooth,
+Radio frecuencia
+
+
 3.8. Tamaño de la tarjeta  
  
  
@@ -205,6 +227,7 @@ el voltaje y evitar el rizado
  
 Capítulo 5. Diseño de interfaz de usuario.
 5.1. Requerimientos
+
 5.2. Software utilizado
 5.3. Diagrama de flujo
 5.4. Protocolo de comunicación
