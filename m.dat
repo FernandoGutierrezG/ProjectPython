@@ -285,3 +285,67 @@ DEspues el tiempo de muestreo
 DEspues iniciar la lectura
 5.6. Configuración del motor utilizado
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. Pruebas de la tarjeta de medicion.
+
+Las pruebas consisten en montar la tarjeta
+
+
+
+Prueba de velocidad angular con velocidad angular  de 50 rpm.
+En la parte superior de la grafica 1 muestra que la velocidad medida por la tarjeta MAVVA es muy parecida a la velocidad real 
+(mediciones hechas por el motor) aunque hay cierto desface en las senales. Es decir, que la senal 
+de la velocidad medida es mayor por 3 unidades aproximadamente en casi todo el eje del tiempo.
+
+La grafica del error muestra el error es mayor cuando inica la prueba que es cuando la aceleracion
+es mayor ya que el motor pasa de estar en reposo a comenzar a girar y tratar de mantener su valor de 
+velocidad de giro constante.
+
+Por la apreciacion de que el desface es constante se hara una medicion con velocidad angular nula
+(motor apagado) y ver que valores registra el MMAVA.
+
+
+Grafica de velocida angular con motor apagado.
+
+
+De la gracia anterior se puede determinar que las 6 mediciones(velodad angular para los 3 ejes y 
+aceleracion para los 3 ejes) tienen un desface ya que 
+
+
+
+De la grafica anterios se puede deducir los siquiente:
+Como el motor esta apagado y la tarjeta esta en estado de reposo tanto la acelracion y la velocidad 
+angular debe ser nula, exceptuando en el la acelracion en el eje Z ya que esta registrandola fuerza
+de gravedad de la tierra.
+Como los valores de la velocidad angular son diferentes de cero para los 3 ejes existe un desface
+intrinsico asi como se explico en el apitulo 3. que debe ser coregido para que las mediciones sean 
+mas exactas.
+Lo mismo aplica para los valores de las acelraciones son diferentes de cero para el eje x y y, y 
+es diferente de 9.8 para el eje z. asi que ese desface debe ser corregido
+
+
+
+
+
+
+
+
+
+
+
+
+
+
