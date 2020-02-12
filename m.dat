@@ -1,3 +1,74 @@
+el sigueitne diagrama a bloques del sisgema propuesto. El cual constara de los 
+elementos necesarios para funcionar de manera autonoma, hacer mediciones de aceleracion y 
+velocidad angular, con la opcicon de filtrar u operar esas mediciones, ademas de trnasmitir
+inalambricamente la informacion.
+
+
+
+
+microcontrolador y el sensor sea el I2C. Como ya se vio en el capitulo 2 este protocolo tiene 
+la ventaja de poder conectar varios sensores en el mismo bus de datos, lo que nos permite poner
+mas de un sensor en nuestro diseno, creando la posibilidad de tener dos o tres mediciones 
+de diferentes sensores y compararlas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+El diseno de esquematicos es ......
+......
+Para este trabajo de tesis se utilizo el software
+
+El diseno de una tarjeta de circuito impreso consta escencialmetne de 3 partes.
+Diseno de esquematicos, seleccion de componentes, y diseno de layout.
+
+Primero es el diseno de los esquematicos donde se concetan los componentes electronicos de manera 
+simbolica, y las uniones se realizan con lineas que representan la continuidad entre los
+componentes o terminales conectadas.
+Los archivos esquematicos fueron creados en el software altium designer.
+
+LE proyecto esta dividido en dos 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
