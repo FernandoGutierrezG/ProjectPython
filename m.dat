@@ -74,6 +74,30 @@ LE proyecto esta dividido en dos
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # cap 2
 Introduccion a los motores
 
@@ -294,6 +318,29 @@ el voltaje y evitar el rizado
  4.5. Modelo propuesto
  4.6. Diseño de esquemático
  4.7. Diseño de tarjeta de circuito impreso 
+
+
+ ===Diagrama de flujo del programa para el microcontrolador
+ El como el microcontrladaro utilizado es de la compania Texas Instruments exiten pocas 
+ maneras de programarlo, con programarlo nos referimso a cargar o guardar dentro de la 
+ memoria flash del microcontolador el archivo binario donde estan establecidas las 
+ instrucciones que realizara.
+ Una opcion es utilizar el IDE code compouser studio es desarrollaldo por la misma compania y tiene la opcion de 
+ programar diferentes familias de microcontroladores.
+La segunda opcion es utilizar el IDE IAR EMBEDDED worbench, este es desarrodo por la
+compania IAR systems, y es util para programar diferentes microcontroladores de diferentes
+companias, no solo de texas instruments.
+Los dos IDEs son muy parecidos, son hasta cierto punto amigables con el usuario y facil 
+de utilizar para usuarios que han desarrollado alguna vez projectos en el lenguaje c.
+En este tema de tesis se probaron los dos entornos de desarrollo para elegir el que fuera 
+mas facil de utilizar para termianr el proyecto lo mas rapido posible, pero se dicidio
+por el IAR Embeded Worbench ya que habiamos relaizado algunos proyectos con este software
+en el pasado con otrs microcontroladores pero la manera de compilar, debugrar y cargar 
+el programa son las mismas.
+
+EL microcontrolador esta configurado para operar a una frecuencia de 80MHz, 
+La tasa de 
+
  
  
 Capítulo 5. Diseño de interfaz de usuario.
