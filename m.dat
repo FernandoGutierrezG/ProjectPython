@@ -135,6 +135,69 @@ Capítulo 4. Diseño de la tarjeta de para medir velocidad angular y aceleració
 4.4. Sensores de medición inercial
 4.5. Modelo propuesto
 4.6. Diseño de esquemático
+
+
+
+
+
+El diagrama a bloques de la fig, ahora esta expresado como un diagrama esquematico (fig x) que contiene 8 recuadros verdes
+que son 8 esquematicos complementarios que contienen pequenas partes de todo el sistema. Cada esquematico complementario esta
+interconectado de tal forma que la
+
+
+reg voltaje
+El primer esuqemtico realizado es el de regu. de la figura x.
+El esquematico con el que inciamos el proyecto es con el de potencia. Este diagrama se enfoca en proveer la energia para 
+toda la tarjeta. 
+La bateria se se conecta al conector P2, que es por donde esntra la enrgia para el sistema.
+Los pines 1 y2 del conector los conectamos a un NET al cual llamamos V_Batt. Esto es util, ya que cada vez que queramos 
+utilizar el voltaje de bateria, solo debemos conectarnos al NET V_batt. Tal y como se usa en los componentes U6 y U7 los 
+cuales son reguladores de voltaje que usan este net como sus entradas.
+Como nuestro sistema MMAVA funciona con dos niveles de voltaje, fue necesario utilizar dos reguladores de voltaje.
+El regulador U6 toma del net V_batt el voltaje de bateria y regula a su salida el un voltaje con nivel de 1.2V
+Y el regulador U7 tambien toma el voltaje de bateria y regula en su salida un voltaje de 3.3V.
+Estos nuevos nets 1_2V y 3_3V seran utilizados en otros esquematicos para alimentar a otros componentes.
+
+======mcu_vcc
+Es esquematic
+Ene ste esquematico se conectan 
+
+Este esquematico se
+
+En este esquematico se le provee el voltaje al microcontolador.
+Se toman los nodos de 1_2V y 3_3V y son concetados a sus respectivas entradas. Estas conexiones estan especificadas en 
+la hoja de datos del microcontrolador. Ya que algunos modulos internos funcionan con un voltaje de alimentacion de 3.3V y 
+algunos otros con un voltaje de 1.2V. La siguiente tabla muestra que pines de alimentacion y  tierras son requeridos para que el microcontolador
+sea polarizado correctamente.
+tabla
+Como se ve en el esquematico se agregaron algunos capacitores de filtrado para las entradas de alimentacion, ya que hay un rango
+permitido de voltaje de alimentacion. Estos capacitores quitan los rizos que pudiera tener los voltajes de entrada.
+
+
+== puertos de microcontrolador
+En este esquematico se centra en la conexion de los puertos de entrada y salida del microcontrolador. 
+Como se menciono anteriormente en este capitulo, el microcontolador tiene dos puertos UART y 1 I2C y estos estan distribuidos 
+en algunos de los 80 pines que tiene el microcontrolador. Este esquematico muestra los pines que se usaron para
+interconectar el microcontrolador con los sensores, con el modulo de de transmision inalambrica, pines de configuracion. La
+siguiente tabla muestra los pines conectados.
+tabla de pines
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 4.7. Diseño de tarjeta de circuito impreso 
  
 Capítulo 5. Diseño de interfaz de usuario.
