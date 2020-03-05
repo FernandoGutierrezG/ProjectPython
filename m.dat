@@ -58,6 +58,28 @@ LE proyecto esta dividido en dos
 
 
 
+El diagrama de esquematico del cristal es el que se encarga de que el microcontrolador funcione.
+Ya que el circuito oscilador le indica a que velocidad debe trabajar.
+El circuito oscilador produce la senal de reloj (conmutando entre 3.3V y 0V) y va conectada
+a la entrada OSCIN (pata 19).
+El valor de los capacitores se obtuvo de las recomendaciones del fabricante, en donde se especifica que 
+con ese valor.
+En este esquematico tambien se hacen las conexiones de 4 entradas analogicas con resolusion de a 12 bits en un rango de 
+-0.3 a 3.3V. Ademas del 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -181,6 +203,15 @@ en algunos de los 80 pines que tiene el microcontrolador. Este esquematico muest
 interconectar el microcontrolador con los sensores, con el modulo de de transmision inalambrica, pines de configuracion. La
 siguiente tabla muestra los pines conectados.
 tabla de pines
+
+
+
+
+
+
+
+
+
 
 
 
